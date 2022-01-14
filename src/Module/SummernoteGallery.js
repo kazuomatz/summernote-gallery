@@ -6,7 +6,7 @@ export default class SummernoteGallery {
     constructor(options) {
         this.options = $.extend({
             name: 'summernote-gallery',
-            button_label: '<i class="fas fa-image"></i>',
+            button_label: '<i class="fas fa-images"></i>',
             tooltip: 'summernote gallery'
         }, options);
 

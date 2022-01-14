@@ -67,13 +67,13 @@ export default class GalleryModal {
 
     // generate image elements from data object
     createImages(data, page) {
-        var attributes = page ? 'class="page-content" data-page"' + page + '"' : '';
+        var attributes = page ? 'class="page-content row" data-page"' + page + '"' : '';
         var $content = $('<div ' + attributes + '></div>');
         var _this = this;
 
         for (var i = 0; i < data.length; i++) {
 
-            var $image = $('<img class="col-md-12 thumbnail" title="'+ data[i].title +'"/>');
+            var $image = $('<img class="img-fluid" title="'+ data[i].title +'"/>');
 
             $image.get(0).onload = function() {
                 $(this).siblings('.loading').hide()
@@ -84,7 +84,7 @@ export default class GalleryModal {
 
             $image.attr('src', data[i].src);
 
-            var $item = $('<div class="col-md-2 img-item">'
+            var $item = $('<div class="col-md-4 img-item">'
                             +'<i class="fa fa-check"></i>'
                             +'<span class="loading">'
                                 +'<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>'
@@ -199,17 +199,19 @@ export default class GalleryModal {
                             + (bootsrap_version == 3 ? header_content.join('') : header_content.reverse().join(''))
                         + '</div>'
                         + '<div class="modal-body">'
-                            + '<div class="row images-list">'
+                            + '<div class="images-list">'
                             + '</div>'
                         + '</div>'
                         + '<div class="modal-footer">'
                             + '<span style="display: none;position: absolute;left: 10px;bottom: 10px;" class="loading" >'
                                 + '<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>'
                             + '</span >'
+            /*
                             + '<span style="display: inline-block; margin-right: 50px;">'
                                 + '<button type="button" id="deselect-all" class="btn btn-default">[Deselect-all]</button>'
                                 + '<button type="button" id="select-all" class="btn btn-default">[select-all]</button>'
                             + '</span >'
+             */
                             + '<button type="button" id="close" class="btn btn-default" data-dismiss="modal">[Close]</button>'
                             + '<button type="button" id="save" class="btn btn-primary">[Add]</button>'
                             + '<span class="message" ></span >'
